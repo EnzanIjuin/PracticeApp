@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Practice App</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="list_items">
+        <item>Make a Call</item>
+        <item>Show Calendar, Add Reminder</item>
+        <item>Open Browser</item>
+        <item>Manage Address Book</item>
+        <item>Show My Location, Take Me Somewhere</item>
+        <item>Send/Read SMS Message</item>
+    </string-array>
+    <string name="title_activity_calendar">Calendar</string>
+    <string name="title_activity_second">SecondActivity</string>
+</resources>
