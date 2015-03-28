@@ -2,6 +2,7 @@ package com.example.shelton.practiceapp;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,21 +49,33 @@ public class MainActivity extends ActionBarActivity implements  ListViewFragment
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+     * 0. Dialer
+     * 1. Calendar
+     * 2. Browser
+     * 3. Address Book
+     * 4. Location
+     * 5. SMS
+     */
     @Override
     public void onFragmentInteraction(int i) {
-        Intent intent = new Intent(this, SecondActivity.class);
+        Intent intent;
         switch (i) {
             case 0:
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_DIAL);
                 break;
+            case 2:
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));
+                break;
             default:
+                intent = new Intent(this, SecondActivity.class);
                 intent.putExtra("item", i);
                 break;
         }
-        if(intent != null && intent.resolveActivity(getPackageManager()) != null) {
+        if(intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-        } else if(intent != null && intent.resolveActivity(getPackageManager()) == null){
+        } else {
             Log.v("RAWR MA", "No activity found for this Intent.");
         }
     }
