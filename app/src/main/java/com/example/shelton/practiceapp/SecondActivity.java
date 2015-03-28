@@ -1,17 +1,26 @@
 package com.example.shelton.practiceapp;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class SecondActivity extends ActionBarActivity {
 
+    private int item;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        Intent i = getIntent();
+        item = i.getIntExtra("item", -1);
+
+        Log.v("RAWR SA", "Got " + item);
     }
 
 
