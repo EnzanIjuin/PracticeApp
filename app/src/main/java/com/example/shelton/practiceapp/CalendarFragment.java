@@ -6,12 +6,10 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
 
 
 public class CalendarFragment extends Fragment {
 
-    private CalendarView calendar;
 
     public CalendarFragment() {
         // Required empty public constructor
@@ -28,14 +26,5 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initializeCalendar();
-    }
-
-    private void initializeCalendar() {
-        calendar = (CalendarView) getActivity().findViewById(R.id.calendarView);
-
-        calendar.setShowWeekNumber(false);
-
-        calendar.setFirstDayOfWeek(1);
     }
 }
