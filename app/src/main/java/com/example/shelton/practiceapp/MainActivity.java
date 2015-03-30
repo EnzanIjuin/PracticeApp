@@ -3,6 +3,7 @@ package com.example.shelton.practiceapp;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,6 +68,9 @@ public class MainActivity extends ActionBarActivity implements  ListViewFragment
                 break;
             case 2:
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));
+                break;
+            case 3:
+                intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                 break;
             default:
                 intent = new Intent(this, SecondActivity.class);
