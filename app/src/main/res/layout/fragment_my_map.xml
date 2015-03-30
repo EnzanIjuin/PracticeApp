@@ -10,7 +10,7 @@
         android:name="com.google.android.gms.maps.MapFragment"
         android:id="@+id/fragment"
         android:layout_gravity="center_horizontal|left|right|top"
-        android:layout_weight="20"/>
+        android:layout_weight="10"/>
 
     <Button
         android:layout_width="fill_parent"
