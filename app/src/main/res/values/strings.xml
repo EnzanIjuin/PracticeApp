@@ -15,6 +15,5 @@
         <item>Show My Location, Take Me Somewhere</item>
         <item>Send/Read SMS Message</item>
     </string-array>
-    <string name="title_activity_calendar">Calendar</string>
-    <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_second">Second Activity</string>
 </resources>
