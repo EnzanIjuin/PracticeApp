@@ -1,5 +1,7 @@
 package com.example.shelton.practiceapp;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.view.MenuItem;
 
 public class SecondActivity extends ActionBarActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,8 +20,13 @@ public class SecondActivity extends ActionBarActivity {
 
         Intent i = getIntent();
         int item = i.getIntExtra("item", -1);
-
         Log.v("RAWR SA", "Got " + item);
+
+        try {
+            openFragment(item);
+        } catch(UnsupportedOperationException e) {
+            Log.e("RAWR SA", "Unsupported Operation!!!");
+        }
     }
 
 
@@ -42,5 +50,29 @@ public class SecondActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /*
+     * 1. Calendar
+     * 4. Map
+     * 5. SMS
+     */
+    private void openFragment(int i) {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        switch(i) {
+            case 1:
+                transaction.add(android.R.id.content, new CalendarFragment());
+                break;
+            case 4:
+                transaction.add(android.R.id.content, new MyMapFragment());
+                break;
+            case 5:
+                transaction.add(android.R.id.content, new SmsFragment());
+                break;
+            default:
+                throw new UnsupportedOperationException();
+        }
+        transaction.commit();
     }
 }
