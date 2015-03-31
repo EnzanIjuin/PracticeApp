@@ -22,11 +22,7 @@ public class SecondActivity extends ActionBarActivity {
         int item = i.getIntExtra("item", -1);
         Log.v("RAWR SA", "Got " + item);
 
-        try {
-            openFragment(item);
-        } catch(UnsupportedOperationException e) {
-            Log.e("RAWR SA", "Unsupported Operation!!!");
-        }
+        openFragment(item);
     }
 
 
@@ -62,13 +58,13 @@ public class SecondActivity extends ActionBarActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         switch(i) {
             case 1:
-                transaction.add(android.R.id.content, new CalendarFragment());
+                transaction.add(R.id.group, new CalendarFragment());
                 break;
             case 4:
-                transaction.add(android.R.id.content, new MyMapFragment());
+                transaction.add(R.id.group, new MyMapFragment());
                 break;
             case 5:
-                transaction.add(android.R.id.content, new SmsFragment());
+                transaction.add(R.id.group, new SmsFragment());
                 break;
             default:
                 throw new UnsupportedOperationException();
