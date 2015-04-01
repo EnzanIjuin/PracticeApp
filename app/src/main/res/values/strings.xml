@@ -16,4 +16,5 @@
         <item>Send/Read SMS Message</item>
     </string-array>
     <string name="title_activity_second">Second Activity</string>
+    <string name="title_dialog_reminder">Set Reminder</string>
 </resources>

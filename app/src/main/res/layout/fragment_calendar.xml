@@ -4,19 +4,17 @@
     android:padding="16dp"
     tools:context="com.example.shelton.practiceapp.CalendarFragment">
 
-    <CalendarView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:id="@+id/calendarView"
-        android:dateTextAppearance="@android:style/TextAppearance.Large"
-        android:layout_gravity="center_horizontal|top"
-        android:showWeekNumber="false"/>
-
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Add Reminder"
         android:id="@+id/b_reminder"
         android:layout_gravity="center_horizontal|bottom" />
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker_reminder"
+        android:layout_gravity="center_horizontal|top" />
 
 </FrameLayout>
