@@ -1,9 +1,11 @@
 package com.example.shelton.practiceapp;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +13,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 
-public class CalendarFragment extends Fragment implements View.OnClickListener {
+public class CalendarFragment extends Fragment implements View.OnClickListener, DialogInterface.OnClickListener{
 
-    private DatePicker calendar;
     private Button reminder;
 
     public CalendarFragment() {
@@ -32,8 +34,6 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        calendar = (DatePicker) getActivity().findViewById(R.id.datePicker_reminder);
 
         reminder = (Button) getActivity().findViewById(R.id.b_reminder);
         reminder.setOnClickListener(this);
@@ -53,16 +53,19 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                TimePicker picker = (TimePicker) getActivity().findViewById(R.id.timePicker_reminder);
-                EditText desc = (EditText) getActivity().findViewById(R.id.in_reminder);
-
-
-            }
-        });
+        builder.setPositiveButton("OK", this);
 
         builder.show();
+    }
+
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog = (Dialog) dialogInterface;
+
+        EditText desc = (EditText) dialog.findViewById(R.id.in_reminder);
+        TimePicker timePicker = (TimePicker) dialog.findViewById(R.id.timePicker_reminder);
+        DatePicker datePicker = (DatePicker) getActivity().findViewById(R.id.datePicker_reminder);
+
+
     }
 }
