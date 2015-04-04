@@ -49,11 +49,6 @@
             android:exported="true" >
         </receiver>
 
-        <service
-            android:name=".MyService"
-            android:enabled="true"
-            android:exported="true" >
-        </service>
     </application>
 
 </manifest>

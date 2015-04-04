@@ -80,7 +80,7 @@ public class MainActivity extends ActionBarActivity implements  ListViewFragment
         if(intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
-            Log.v("RAWR MA", "No activity found for this Intent.");
+            Log.e("RAWR MA", "No activity found for this Intent.");
         }
     }
 }
