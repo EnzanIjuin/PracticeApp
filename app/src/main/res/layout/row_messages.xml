@@ -20,11 +20,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Message:"
         android:id="@+id/text_msg"
-        android:layout_below="@+id/text_name"
+        android:layout_below="@+id/b_del"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/b_del"
-        android:layout_toStartOf="@+id/b_del" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -32,9 +32,10 @@
         android:layout_height="wrap_content"
         android:text="Read"
         android:id="@+id/b_read"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/text_msg" />
+        android:layout_above="@+id/text_msg" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -42,9 +43,20 @@
         android:layout_height="wrap_content"
         android:text="Del"
         android:id="@+id/b_del"
+        android:hint="Delete"
+        android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/b_read"
         android:layout_toStartOf="@+id/b_read"
-        android:hint="Delete"
-        android:layout_alignBottom="@+id/text_msg" />
+        android:layout_alignBottom="@+id/text_time" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Time:"
+        android:id="@+id/text_time"
+        android:layout_below="@+id/text_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
