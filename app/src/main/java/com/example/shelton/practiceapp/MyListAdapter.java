@@ -20,10 +20,18 @@ public class MyListAdapter extends CursorAdapter implements View.OnClickListener
 
     public static final String INBOX = "content://sms/inbox";
     private static final String TAG = "RAWR Adapter";
+
     private LayoutInflater inflater;
 
-    public MyListAdapter(Context context, Cursor c, boolean autoRequery) {
+    private Button del, read;
+    private TextView name, msg, time;
+
+    private Communicator communicator;
+
+    public MyListAdapter(Context context, Cursor c, boolean autoRequery, Communicator communicator) {
         super(context, c, autoRequery);
+
+        this.communicator = communicator;
 
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -35,15 +43,15 @@ public class MyListAdapter extends CursorAdapter implements View.OnClickListener
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        Button del = (Button) view.findViewById(R.id.b_del);
-        Button read = (Button) view.findViewById(R.id.b_read);
+        del = (Button) view.findViewById(R.id.b_del);
+        read = (Button) view.findViewById(R.id.b_read);
 
         del.setOnClickListener(this);
         read.setOnClickListener(this);
 
-        TextView name = (TextView) view.findViewById(R.id.text_name);
-        TextView msg = (TextView) view.findViewById(R.id.text_msg);
-        TextView time = (TextView) view.findViewById(R.id.text_time);
+        name = (TextView) view.findViewById(R.id.text_name);
+        msg = (TextView) view.findViewById(R.id.text_msg);
+        time = (TextView) view.findViewById(R.id.text_time);
 
         name.setText(cursor.getString(cursor.getColumnIndex("address")));
         msg.setText(cursor.getString(cursor.getColumnIndex("body")));
@@ -65,14 +73,20 @@ public class MyListAdapter extends CursorAdapter implements View.OnClickListener
         int pos = listView.getPositionForView(view);
 
         switch(view.getId()) {
-            case R.id.b_del:
-                Log.d(TAG, "Delete from pos " + pos + " pressed!");
-                break;
             case R.id.b_read:
                 Log.d(TAG, "Read from pos " + pos + " pressed!");
+                communicator.read(pos);
+                break;
+            case R.id.b_del:
+                Log.d(TAG, "Delete from pos " + pos + " pressed!");
+                communicator.delete(pos);
                 break;
         }
     }
 
 
+    public interface Communicator {
+        public void delete(int pos); // Method to delete SMS
+        public void read(int pos); // Method to TTS SMS
+    }
 }
