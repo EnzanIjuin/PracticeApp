@@ -25,28 +25,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Message:"
-        android:id="@+id/text_message"
+        android:id="@+id/text_msg"
         android:layout_below="@+id/in_pnumber"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/in_message"
+        android:layout_height="wrap_content"
+        android:id="@+id/in_msg"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/text_message"
-        android:layout_alignParentBottom="true" />
+        android:layout_below="@+id/text_msg"
+        android:height="70dp" />
 
     <Spinner
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinner_contacts"
         android:layout_below="@+id/text_to"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:gravity="right" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/in_msg"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/b_cancel"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:id="@+id/b_send"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 
 </RelativeLayout>
