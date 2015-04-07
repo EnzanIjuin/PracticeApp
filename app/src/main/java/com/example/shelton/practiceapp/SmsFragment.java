@@ -138,42 +138,6 @@ public class SmsFragment extends Fragment implements SmsListAdapter.Communicator
 
         dialogFragment.show(manager, "sms");
 
-/*        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        builder.setTitle("Compose");
-        builder.setView(getActivity().getLayoutInflater().inflate(R.layout.dialog_compose, null));
-        builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Dialog dialog = (Dialog) dialogInterface;
-
-                EditText pNumber = (EditText) dialog.findViewById(R.id.in_pnumber);
-                EditText msg = (EditText) dialog.findViewById(R.id.in_message);
-
-                if(pNumber.length() < 10) {
-                    Toast.makeText(getActivity(), "Phone number invalid!", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                if(msg.length() < 1) {
-                    Toast.makeText(getActivity(), "Message is blank!", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                sendSMS(pNumber.getText(), msg.getText());
-
-                dialogInterface.dismiss();
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-
-        builder.show();
-*/
     }
 
 }
