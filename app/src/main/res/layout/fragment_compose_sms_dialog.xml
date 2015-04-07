@@ -37,8 +37,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/text_msg"
-        android:height="70dp" />
+        android:layout_below="@+id/text_msg" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -62,6 +61,13 @@
             android:layout_height="wrap_content"
             android:text="Cancel"
             android:id="@+id/b_cancel"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Speech"
+            android:id="@+id/b_speech"
             android:layout_weight="1" />
 
         <Button
