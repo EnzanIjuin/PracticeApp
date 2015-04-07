@@ -2,7 +2,6 @@ package com.example.shelton.practiceapp;
 
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
@@ -15,15 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.List;
 import java.util.Locale;
 
 
-public class SmsFragment extends Fragment implements MyListAdapter.Communicator,
+public class SmsFragment extends Fragment implements SmsListAdapter.Communicator,
         View.OnClickListener {
 
     private static final String TAG = "RAWR sms";
@@ -31,7 +28,7 @@ public class SmsFragment extends Fragment implements MyListAdapter.Communicator,
     private ListView smsListView;
     private Button show, compose;
 
-    private MyListAdapter adapter;
+    private SmsListAdapter adapter;
     private TextToSpeech tts;
     private Cursor c;
 
@@ -51,7 +48,7 @@ public class SmsFragment extends Fragment implements MyListAdapter.Communicator,
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        c = getActivity().getContentResolver().query(Uri.parse(MyListAdapter.INBOX), null,
+        c = getActivity().getContentResolver().query(Uri.parse(SmsListAdapter.INBOX), null,
                 null, null, null);
 
         show = (Button) getActivity().findViewById(R.id.b_show_sms);
@@ -67,7 +64,7 @@ public class SmsFragment extends Fragment implements MyListAdapter.Communicator,
         });
 
         smsListView = (ListView) getActivity().findViewById(R.id.list_sms);
-        adapter = new MyListAdapter(getActivity(), c, true, this);
+        adapter = new SmsListAdapter(getActivity(), c, true, this);
         smsListView.setAdapter(adapter);
     }
 
@@ -127,13 +124,13 @@ public class SmsFragment extends Fragment implements MyListAdapter.Communicator,
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.b_compose:
-                composeDialog();
+                //composeDialog();
                 break;
             case R.id.b_show_sms:
                 break;
         }
     }
-
+/*
     private void composeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -171,7 +168,7 @@ public class SmsFragment extends Fragment implements MyListAdapter.Communicator,
 
         builder.show();
     }
-
+*/
     private void sendSMS(CharSequence pNumber, CharSequence msg) {
         SmsManager manager = SmsManager.getDefault();
 

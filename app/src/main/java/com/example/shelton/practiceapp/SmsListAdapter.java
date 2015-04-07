@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-public class MyListAdapter extends CursorAdapter implements View.OnClickListener {
+public class SmsListAdapter extends CursorAdapter implements View.OnClickListener {
 
     public static final String INBOX = "content://sms/inbox";
     private static final String TAG = "RAWR Adapter";
@@ -28,7 +28,7 @@ public class MyListAdapter extends CursorAdapter implements View.OnClickListener
 
     private Communicator communicator;
 
-    public MyListAdapter(Context context, Cursor c, boolean autoRequery, Communicator communicator) {
+    public SmsListAdapter(Context context, Cursor c, boolean autoRequery, Communicator communicator) {
         super(context, c, autoRequery);
 
         this.communicator = communicator;
